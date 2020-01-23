@@ -46,7 +46,7 @@ test('Calc Position keeps within bounds', () => {
 
   const newScale = { height: 200, width: 200 }
   const oldScale = { height: 300, width: 300 }
-  const canvas = { height: 200, width: 200 }
+  const canvas = { height: 300, width: 200 }
   const position = { x: 10, y: 10 }
 
   const { x, y } = calculatePosition(newScale, oldScale, canvas, position)

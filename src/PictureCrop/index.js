@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Editor from './Editor'
+import '../scss/index.scss'
 
 const PictureCrop = props => {
   const [url, setUrl] = useState('')
@@ -38,9 +39,9 @@ const PictureCrop = props => {
    * @return {boolean}
    */
   const showSlider = () => {
-    if (props.slider === false) return props.slider
+    if (props.slider && !!url) return props.slider
 
-    return !!url
+    return false
   }
 
   /**
@@ -54,16 +55,16 @@ const PictureCrop = props => {
   }
 
   return (
-    <div id='picture-crop'>
+    <div id='react-picture-crop'>
       <form className='picture-form' id='picture-form' onSubmit={onSubmit}>
         <input
           type='file'
-          id='picture-input'
-          name='picture-input'
+          id='react-picture-crop-input'
+          name='react-picture-crop-input'
           accept='image/*'
           onChange={handleImageSelect}
         />
-        <label htmlFor='picture-input'>Choose Image</label>
+        {props.label ? (<label htmlFor='react-picture-crop-input'>{props.label}</label>) : ''}
         <Editor
           slider={showSlider()}
           url={url}

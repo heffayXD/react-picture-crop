@@ -24,6 +24,13 @@ const Editor = props => {
   const getScaledAspectRatio = useScaleAspectRatio()
   const calculatePosition = usePositionCalc()
 
+  useEffect(() => {
+    if (props.dimensions && props.dimensions.width && props.dimensions.height) {
+      setCanvas(props.dimensions)
+      setImage(props.dimensions)
+    }
+  }, [])
+
   /**
    * Updates the image
    */
@@ -43,7 +50,15 @@ const Editor = props => {
    * @param {event} e
    */
   const handleSlider = e => {
-    const newScale = e.target.value * 0.01
+    calculateScale(e.target.value)
+  }
+
+  /**
+   * Sets the scale appropriately
+   * @param {float} value
+   */
+  const calculateScale = value => {
+    const newScale = value * 0.01
 
     // Get scaled width and height
     const ratio = getScaledAspectRatio({ width: image.width * newScale, height: image.height * newScale }, canvas, image)
@@ -51,7 +66,7 @@ const Editor = props => {
     // Calculate the new position after zoom
     const { x, y } = calculatePosition(ratio, scaleRef.current, canvas, finalRef.current)
 
-    setZoom(e.target.value)
+    setZoom(value)
     setScale(ratio)
     setFinalPos({ x, y })
   }
@@ -128,7 +143,7 @@ const Editor = props => {
     const tempY = -(initialRef.current.y - e.clientY)
 
     const x = tempX - canvas.width > -scale.width && tempX < 0 ? Math.round(tempX) : finalRef.current.x
-    const y = tempY - canvas.width > -scale.height && tempY < 0 ? Math.round(tempY) : finalRef.current.y
+    const y = tempY - canvas.height > -scale.height && tempY < 0 ? Math.round(tempY) : finalRef.current.y
 
     setFinalPos({ x, y })
   }
@@ -189,12 +204,20 @@ const Editor = props => {
   }
 
   /**
+   * Fixes image when a new one is loaded
+   */
+  useEffect(() => {
+    calculateScale(getMin())
+  }, [image])
+
+  /**
    * Update refs and image whenever state changes
    */
   useEffect(() => {
     initialRef.current = initialPos
     finalRef.current = finalPos
     scaleRef.current = scale
+
     updateImage()
   }, [dragging, zoom, scale, canvas, image, initialPos, finalPos])
 

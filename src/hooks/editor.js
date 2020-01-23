@@ -18,7 +18,7 @@ export const useScaleAspectRatio = () => {
       }
     }
 
-    if (scale.width !== scale.height) {
+    if (scale.width > scale.height) {
       return {
         width: image.width * (canvas.height / image.height),
         height: canvas.height
@@ -26,7 +26,7 @@ export const useScaleAspectRatio = () => {
     }
 
     // Lock to canvas bounds
-    return { width: canvas.height, height: canvas.width }
+    return { width: canvas.width, height: canvas.height }
   }
 
   return (scale, canvas, image) => {
