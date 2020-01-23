@@ -20,8 +20,11 @@ export default App
 
 ## Props
 ### slider
+```
+<PictureCrop slider />
+```
 
-Add the prop "slider" to enable the magnification slider
+Add the prop "slider" to enable the magnification slider (disabled by default)
 
 ### dimensions
 ```
@@ -31,12 +34,15 @@ Add the prop "slider" to enable the magnification slider
 Use the "dimensions" prop to pass the target resolution in pixels (default is 200x200)
 
 ### noStyles
+```
+<PictureCrop noStyles />
+```
 
-Add the prop "noStyles" to disable all default CSS styles
+Add the prop "noStyles" to disable all default CSS styles (enabled by default)
 
 ### label
 ```
 <PictureCrop label='Choose file' />
 ```
 
-Adding this prop will add a label for the "Choose file" input. You can use this for custom styling your own "Choose file" input.
+Adding this prop will add a label for the "Choose file" input. You can use this for custom styling your own "Choose file" input (disabled by default)
