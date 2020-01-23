@@ -1,12 +1,16 @@
 {
   "name": "@heffayxd/react-picture-crop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React component for cropping and resizing images.",
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "build": "webpack --config ./webpack.dist.config.js"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/heffayXD/react-picture-crop"
   },
   "author": "heffayxd",
   "license": "ISC",
