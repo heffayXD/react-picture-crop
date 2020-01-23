@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import Editor from './Editor'
-import '../scss/index.scss'
 
 const PictureCrop = props => {
   const [url, setUrl] = useState('')
+
+  if (!props.noStyles) {
+    const styles = require('../scss/index.scss')
+  }
 
   const handleImageSelect = e => {
     const file = e.target.files[0]
@@ -49,8 +52,8 @@ const PictureCrop = props => {
    * @param {string} preview64
    */
   const handleSubmit = preview64 => {
-    if (props.submit && typeof props.submit === 'function') {
-      props.submit(preview64)
+    if (props.handleSubmit && typeof props.handleSubmit === 'function') {
+      props.handleSubmit(preview64)
     }
   }
 
