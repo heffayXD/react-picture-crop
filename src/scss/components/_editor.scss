@@ -1,0 +1,44 @@
+
+#picture-editor {
+  display: grid;
+  grid-template-rows: 220px 60px;
+  canvas {
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    border-color: #5b5f66;
+    margin: 0 auto;
+    border: 2px solid;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: move;
+    }
+  }
+
+  input {
+    background: #5b5f66;
+    width: 204px;
+    margin: 8px auto;
+    height: 15px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    &::-webkit-slider-thumb {
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+      background: #f5f5f5;
+      appearance: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    &::-moz-range-thumb {
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+      background: #f5f5f5;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
