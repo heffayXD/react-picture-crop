@@ -1,6 +1,6 @@
 {
   "name": "@heffayxd/react-picture-crop",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,30 +8,32 @@
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "build": "webpack --config ./webpack.dist.config.js"
   },
-  "author": "Jeff",
+  "author": "heffayxd",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
+    "node-sass": "^4.13.1",
     "path": "^0.12.7",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.7.7",
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/register": "^7.7.7",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.1",
-    "html-webpack-plugin": "^3.2.0",
-    "jest": "^24.9.0",
-    "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "standard": "^14.3.1",
     "style-loader": "^1.1.2",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }

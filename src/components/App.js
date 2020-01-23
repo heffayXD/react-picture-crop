@@ -1,5 +1,7 @@
 import React from 'react'
-import PictureCrop from '../PictureCrop'
+import PictureCrop from '../../index'
+
+console.log(PictureCrop)
 
 const App = () => {
   return (
