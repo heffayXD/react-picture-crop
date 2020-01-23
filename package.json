@@ -13,7 +13,7 @@
     "url" : "https://github.com/heffayXD/react-picture-crop"
   },
   "author": "heffayxd",
-  "license": "ISC",
+  "license": "MIT",
   "peerDependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
