@@ -19,6 +19,13 @@ export default App
 ```
 
 ## Props
+### handleSubmit
+```
+<PictureCrop handleSubmit={base64 => { console.log(base64) }} />
+```
+
+Function that is passed when the "submit" button is pressed. It receives the base64 string of the canvas result.
+
 ### slider
 ```
 <PictureCrop slider />
