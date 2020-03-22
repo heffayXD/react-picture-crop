@@ -5,8 +5,7 @@ const App = () => {
   // slider dimensions noStyles label
   return (
     <div id='app'>
-      <h1>Hello World!</h1>
-      <PictureCrop />
+      <PictureCrop slider />
     </div>
   )
 }
