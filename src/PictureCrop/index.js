@@ -54,6 +54,9 @@ const PictureCrop = props => {
    */
   const handleSubmit = preview64 => {
     if (props.onSubmit && typeof props.onSubmit === 'function') {
+      props.onSubmit(preview64)
+    } else if (props.handleSubmit && typeof props.handleSubmit === 'function') {
+      // Backwards compatibility
       props.handleSubmit(preview64)
     }
   }
@@ -73,7 +76,7 @@ const PictureCrop = props => {
           slider={showSlider()}
           url={url}
           dimensions={getDimensions()}
-          submit={handleSubmit}
+          onSubmit={handleSubmit}
         />
       </form>
     </div>

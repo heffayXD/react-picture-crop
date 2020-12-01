@@ -249,8 +249,8 @@ const Editor = props => {
    * @param {event} e
    */
   const handleSubmit = e => {
-    if (props.submit) {
-      props.submit(canvasRef.current.toDataURL('image/jpeg'))
+    if (props.onSubmit) {
+      props.onSubmit(canvasRef.current.toDataURL('image/jpeg'))
     }
   }
 
