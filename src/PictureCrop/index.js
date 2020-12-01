@@ -5,16 +5,17 @@ const PictureCrop = props => {
   const [url, setUrl] = useState('')
 
   if (!props.noStyles) {
-    const styles = require('../scss/index.scss')
+    import('../scss/index.scss')
   }
 
   const handleImageSelect = e => {
+    // If file select was cancelled
+    if (!e.target.value.length) return
+
     const file = e.target.files[0]
     const reader = new FileReader() // eslint-disable-line
     reader.readAsDataURL(file)
-    reader.onload = () => {
-      setUrl(reader.result)
-    }
+    reader.onload = () => { setUrl(reader.result) }
   }
 
   /**
@@ -52,7 +53,7 @@ const PictureCrop = props => {
    * @param {string} preview64
    */
   const handleSubmit = preview64 => {
-    if (props.handleSubmit && typeof props.handleSubmit === 'function') {
+    if (props.onSubmit && typeof props.onSubmit === 'function') {
       props.handleSubmit(preview64)
     }
   }
